@@ -6,22 +6,26 @@
     <title>YOSHI Token 🐶 | Stern, Fair and Cute</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.3.0/web3.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+        
         :root {
-            --primary: #4CAF50;
-            --secondary: #2E7D32;
-            --accent: #81C784;
+            --primary: #FFA500;
+            --secondary: #FF8C00;
+            --accent: #FFD700;
+            --background: #FFF8DC;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Comfortaa', cursive;
         }
 
         body {
-            background: #f0f2f5;
-            color: #333;
+            background: var(--background);
+            color: #555;
+            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffa500' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
         .hero {
@@ -29,11 +33,31 @@
             color: white;
             padding: 100px 20px;
             text-align: center;
+            border-bottom: 8px solid #fff;
+            border-bottom-left-radius: 50% 50px;
+            border-bottom-right-radius: 50% 50px;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "🐕";
+            font-size: 80px;
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) translateX(-50%); }
+            50% { transform: translateY(-20px) translateX(-50%); }
         }
 
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 20px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
         }
 
         .container {
@@ -52,14 +76,21 @@
         .feature-card {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 0 rgba(0,0,0,0.1);
             text-align: center;
+            transition: transform 0.3s;
+            border: 3px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
         }
 
         .feature-card h3 {
-            color: var(--primary);
+            color: var(--secondary);
             margin-bottom: 15px;
+            font-size: 1.5rem;
         }
 
         .stats {
@@ -70,19 +101,22 @@
         }
 
         .stat-card {
-            background: var(--primary);
-            color: white;
+            background: white;
+            color: var(--secondary);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 20px;
             text-align: center;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 0 rgba(0,0,0,0.1);
         }
 
         .tax-info {
             margin-top: 30px;
             background: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 0 rgba(0,0,0,0.1);
+            border: 3px solid var(--primary);
         }
 
         .tax-grid {
@@ -93,38 +127,51 @@
         }
 
         .tax-item {
-            background: #f8f9fa;
+            background: var(--background);
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 15px;
             text-align: center;
+            border: 2px dashed var(--secondary);
         }
 
         .btn {
-            background: var(--primary);
-            color: white;
+            background: white;
+            color: var(--secondary);
             padding: 15px 30px;
             border-radius: 25px;
             text-decoration: none;
             display: inline-block;
             margin: 10px;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            font-weight: bold;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 4px 0 var(--secondary);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            background: var(--secondary);
+            box-shadow: 0 7px 0 var(--secondary);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 var(--secondary);
         }
 
         .connect-wallet {
-            background: #FF9800;
+            background: var(--secondary);
+            color: white;
         }
 
         footer {
-            background: #333;
+            background: var(--primary);
             color: white;
             text-align: center;
             padding: 20px;
             margin-top: 50px;
+            border-top: 8px solid #fff;
+            border-top-left-radius: 50% 50px;
+            border-top-right-radius: 50% 50px;
         }
 
         .tokenomics {
@@ -140,15 +187,38 @@
             background: white;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 8px 0 rgba(0,0,0,0.1);
+            border: 3px solid var(--primary);
+            position: relative;
+        }
+
+        .roadmap-item::before {
+            content: "🐾";
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h2 {
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
     <div class="hero">
-        <h1>YOSHI 🦖</h1>
-        <p class="subtitle">The Most Dynamic Memecoin in the Crypto Universe</p>
+        <h1>YOSHI 🐶</h1>
+        <p class="subtitle">The Goodest Boy in the Crypto Universe! 🦴</p>
         <a href="#" class="btn">Buy YOSHI</a>
         <a href="#" class="btn connect-wallet" id="connectWallet">Connect Wallet</a>
     </div>
@@ -156,21 +226,21 @@
     <div class="container">
         <section class="features">
             <div class="feature-card">
-                <h3>Smart Contract Security</h3>
-                <p>Contract verified and fully audited for maximum security and transparency.</p>
+                <h3>🔒 Safe & Secure</h3>
+                <p>As loyal as a puppy! Fully audited and verified contract.</p>
             </div>
             <div class="feature-card">
-                <h3>Fair Launch</h3>
-                <p>Anti-bot measures and maximum transaction limits ensure a fair distribution.</p>
+                <h3>🎯 Fair Launch</h3>
+                <p>Everyone gets a fair chance to join the pack!</p>
             </div>
             <div class="feature-card">
-                <h3>Dynamic Tax System</h3>
-                <p>Innovative tax structure that reduces over time to reward long-term holders.</p>
+                <h3>🦴 Rewards</h3>
+                <p>Good boys get treats! Dynamic reward system for holders.</p>
             </div>
         </section>
 
         <section class="tokenomics">
-            <h2>Tokenomics</h2>
+            <h2>Tokenomics 📊</h2>
             <div class="stats">
                 <div class="stat-card">
                     <h3>Total Supply</h3>
@@ -187,48 +257,48 @@
             </div>
 
             <div class="tax-info">
-                <h3>Dynamic Tax Structure</h3>
+                <h3>🎈 Fun Tax Structure</h3>
                 <div class="tax-grid">
                     <div class="tax-item">
                         <h4>Initial Buy Tax</h4>
-                        <p>8%</p>
+                        <p>8% 🐕</p>
                     </div>
                     <div class="tax-item">
                         <h4>Initial Sell Tax</h4>
-                        <p>14%</p>
+                        <p>14% 🐾</p>
                     </div>
                     <div class="tax-item">
                         <h4>Final Buy Tax</h4>
-                        <p>0%</p>
+                        <p>0% 🎉</p>
                     </div>
                     <div class="tax-item">
                         <h4>Final Sell Tax</h4>
-                        <p>0%</p>
+                        <p>0% 🌟</p>
                     </div>
                 </div>
-                <p style="margin-top: 20px;">Taxes reduce at milestone transactions to reward long-term holders!</p>
+                <p style="margin-top: 20px;">The longer you HODL, the more treats you get! 🦴</p>
             </div>
         </section>
 
         <section class="roadmap">
-            <h2>Smart Features</h2>
+            <h2>Smart Features 🧠</h2>
             <div class="roadmap-item">
-                <h3>Anti-Bot Measures</h3>
-                <p>Advanced mechanisms to prevent bot trading and ensure fair distribution</p>
+                <h3>🤖 Anti-Bot Protection</h3>
+                <p>No robot dogs allowed! Only real community members.</p>
             </div>
             <div class="roadmap-item">
-                <h3>Auto-Liquidity</h3>
-                <p>Automatic liquidity generation through smart contract functionality</p>
+                <h3>💧 Auto-Liquidity</h3>
+                <p>Always keeping the water bowl full!</p>
             </div>
             <div class="roadmap-item">
-                <h3>Trading Flexibility</h3>
-                <p>Owner can adjust transaction limits and remove trading restrictions as needed</p>
+                <h3>🎯 Trading Flexibility</h3>
+                <p>We can adjust the leash when needed!</p>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>© 2024 YOSHI Token. All rights reserved.</p>
+        <p>© 2024 YOSHI Token - The Goodest Memecoin! 🐕</p>
         <div class="social-links">
             <a href="#" class="btn">Telegram</a>
             <a href="#" class="btn">Twitter</a>
@@ -242,12 +312,12 @@
             if (typeof window.ethereum !== 'undefined') {
                 try {
                     await ethereum.request({ method: 'eth_requestAccounts' });
-                    alert('Wallet connected!');
+                    alert('Wallet connected! 🐕');
                 } catch (error) {
                     alert('Error connecting wallet: ' + error.message);
                 }
             } else {
-                alert('Please install MetaMask!');
+                alert('Please install MetaMask! 🦊');
             }
         });
     </script>
