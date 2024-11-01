@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YOSHI Token 🐶 | Stern, Fair and Cute </title>
+    <title>YOSHI Token 🦖 | Stern, Fair and Cute</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.3.0/web3.min.js"></script>
     <style>
-        /* Previous styles remain the same */
         :root {
             --primary: #4CAF50;
             --secondary: #2E7D32;
@@ -32,238 +31,225 @@
             text-align: center;
         }
 
-        /* Adding new styles for wallet interface */
-        .wallet-interface {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .wallet-info {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+        .hero h1 {
+            font-size: 4rem;
             margin-bottom: 20px;
         }
 
-        .info-item {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tax-info {
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tax-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tax-item {
             background: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .swap-interface {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .swap-input {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .token-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .loading {
-            display: none;
             text-align: center;
-            margin: 10px 0;
         }
 
-        /* Previous styles continue... */
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background: var(--secondary);
+        }
+
+        .connect-wallet {
+            background: #FF9800;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .tokenomics {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .roadmap {
+            margin: 50px 0;
+        }
+
+        .roadmap-item {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
-    <!-- Previous hero section -->
     <div class="hero">
         <h1>YOSHI 🦖</h1>
         <p class="subtitle">The Most Dynamic Memecoin in the Crypto Universe</p>
+        <a href="#" class="btn">Buy YOSHI</a>
         <a href="#" class="btn connect-wallet" id="connectWallet">Connect Wallet</a>
     </div>
 
-    <!-- New wallet interface section -->
     <div class="container">
-        <div class="wallet-interface" id="walletInterface" style="display: none;">
-            <h2>Your YOSHI Dashboard</h2>
-            <div class="wallet-info">
-                <div class="info-item">
-                    <span>Connected Address:</span>
-                    <span id="userAddress">Not connected</span>
+        <section class="features">
+            <div class="feature-card">
+                <h3>Smart Contract Security</h3>
+                <p>Contract verified and fully audited for maximum security and transparency.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Fair Launch</h3>
+                <p>Anti-bot measures and maximum transaction limits ensure a fair distribution.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Dynamic Tax System</h3>
+                <p>Innovative tax structure that reduces over time to reward long-term holders.</p>
+            </div>
+        </section>
+
+        <section class="tokenomics">
+            <h2>Tokenomics</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>Total Supply</h3>
+                    <p>1,000,000,000 YOSHI</p>
                 </div>
-                <div class="info-item">
-                    <span>YOSHI Balance:</span>
-                    <span id="tokenBalance">0 YOSHI</span>
+                <div class="stat-card">
+                    <h3>Max Transaction</h3>
+                    <p>2% of Total Supply</p>
                 </div>
-                <div class="info-item">
-                    <span>Current Buy Tax:</span>
-                    <span id="buyTax">Loading...</span>
-                </div>
-                <div class="info-item">
-                    <span>Current Sell Tax:</span>
-                    <span id="sellTax">Loading...</span>
+                <div class="stat-card">
+                    <h3>Max Wallet</h3>
+                    <p>2% of Total Supply</p>
                 </div>
             </div>
 
-            <div class="token-actions">
-                <div class="swap-interface">
-                    <h3>Buy YOSHI</h3>
-                    <input type="number" id="buyAmount" class="swap-input" placeholder="ETH Amount">
-                    <button class="btn" id="buyButton">Buy YOSHI</button>
-                    <div id="buyLoading" class="loading">Processing transaction...</div>
+            <div class="tax-info">
+                <h3>Dynamic Tax Structure</h3>
+                <div class="tax-grid">
+                    <div class="tax-item">
+                        <h4>Initial Buy Tax</h4>
+                        <p>8%</p>
+                    </div>
+                    <div class="tax-item">
+                        <h4>Initial Sell Tax</h4>
+                        <p>14%</p>
+                    </div>
+                    <div class="tax-item">
+                        <h4>Final Buy Tax</h4>
+                        <p>0%</p>
+                    </div>
+                    <div class="tax-item">
+                        <h4>Final Sell Tax</h4>
+                        <p>0%</p>
+                    </div>
                 </div>
-
-                <div class="swap-interface">
-                    <h3>Transfer YOSHI</h3>
-                    <input type="text" id="recipientAddress" class="swap-input" placeholder="Recipient Address">
-                    <input type="number" id="transferAmount" class="swap-input" placeholder="Amount">
-                    <button class="btn" id="transferButton">Transfer</button>
-                    <div id="transferLoading" class="loading">Processing transfer...</div>
-                </div>
+                <p style="margin-top: 20px;">Taxes reduce at milestone transactions to reward long-term holders!</p>
             </div>
-        </div>
+        </section>
 
-        <!-- Previous sections remain the same -->
+        <section class="roadmap">
+            <h2>Smart Features</h2>
+            <div class="roadmap-item">
+                <h3>Anti-Bot Measures</h3>
+                <p>Advanced mechanisms to prevent bot trading and ensure fair distribution</p>
+            </div>
+            <div class="roadmap-item">
+                <h3>Auto-Liquidity</h3>
+                <p>Automatic liquidity generation through smart contract functionality</p>
+            </div>
+            <div class="roadmap-item">
+                <h3>Trading Flexibility</h3>
+                <p>Owner can adjust transaction limits and remove trading restrictions as needed</p>
+            </div>
+        </section>
     </div>
 
+    <footer>
+        <p>© 2024 YOSHI Token. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="btn">Telegram</a>
+            <a href="#" class="btn">Twitter</a>
+            <a href="#" class="btn">Discord</a>
+        </div>
+    </footer>
+
     <script>
-        // YOSHI Token Contract ABI (minimal version for required functions)
-        const tokenABI = [
-            "function balanceOf(address account) external view returns (uint256)",
-            "function transfer(address recipient, uint256 amount) external returns (bool)",
-            "function approve(address spender, uint256 amount) external returns (bool)",
-            "function symbol() external pure returns (string memory)",
-            "function decimals() external pure returns (uint8)"
-        ];
-
-        // Contract addresses
-        const TOKEN_ADDRESS = "YOUR_TOKEN_CONTRACT_ADDRESS";
-        const ROUTER_ADDRESS = "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"; // Uniswap V2 Router
-
-        let web3;
-        let tokenContract;
-        let userAddress;
-
-        async function connectWallet() {
-            try {
-                if (typeof window.ethereum !== 'undefined') {
-                    // Enable Web3
-                    web3 = new Web3(window.ethereum);
-                    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-                    userAddress = accounts[0];
-
-                    // Initialize contract
-                    tokenContract = new web3.eth.Contract(tokenABI, TOKEN_ADDRESS);
-
-                    // Update UI
-                    document.getElementById('walletInterface').style.display = 'block';
-                    document.getElementById('userAddress').textContent = `${userAddress.substr(0,6)}...${userAddress.substr(-4)}`;
-                    
-                    // Load initial data
-                    await updateBalance();
-                    await updateTaxes();
-
-                    // Setup event listeners for real-time updates
-                    ethereum.on('accountsChanged', handleAccountsChanged);
-                    ethereum.on('chainChanged', () => window.location.reload());
-
-                } else {
-                    alert('Please install MetaMask!');
+        document.getElementById('connectWallet').addEventListener('click', async function(e) {
+            e.preventDefault();
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet connected!');
+                } catch (error) {
+                    alert('Error connecting wallet: ' + error.message);
                 }
-            } catch (error) {
-                console.error(error);
-                alert('Error connecting wallet: ' + error.message);
-            }
-        }
-
-        async function updateBalance() {
-            try {
-                const balance = await tokenContract.methods.balanceOf(userAddress).call();
-                const decimals = await tokenContract.methods.decimals().call();
-                const formattedBalance = (balance / (10 ** decimals)).toFixed(2);
-                document.getElementById('tokenBalance').textContent = `${formattedBalance} YOSHI`;
-            } catch (error) {
-                console.error('Error updating balance:', error);
-            }
-        }
-
-        async function updateTaxes() {
-            try {
-                // These would need to be implemented based on your contract's specific methods
-                document.getElementById('buyTax').textContent = "8%";
-                document.getElementById('sellTax').textContent = "14%";
-            } catch (error) {
-                console.error('Error updating taxes:', error);
-            }
-        }
-
-        async function buyTokens() {
-            const amount = document.getElementById('buyAmount').value;
-            if (!amount) return alert('Please enter an amount');
-            
-            document.getElementById('buyLoading').style.display = 'block';
-            try {
-                // Implementation would need Router contract integration
-                alert('Buy functionality to be implemented based on your specific swap requirements');
-            } catch (error) {
-                console.error('Error buying tokens:', error);
-                alert('Error: ' + error.message);
-            }
-            document.getElementById('buyLoading').style.display = 'none';
-        }
-
-        async function transferTokens() {
-            const recipient = document.getElementById('recipientAddress').value;
-            const amount = document.getElementById('transferAmount').value;
-            if (!recipient || !amount) return alert('Please fill all fields');
-
-            document.getElementById('transferLoading').style.display = 'block';
-            try {
-                const decimals = await tokenContract.methods.decimals().call();
-                const transferAmount = web3.utils.toBN(amount * (10 ** decimals));
-                
-                await tokenContract.methods.transfer(recipient, transferAmount)
-                    .send({ from: userAddress });
-                
-                alert('Transfer successful!');
-                await updateBalance();
-            } catch (error) {
-                console.error('Error transferring tokens:', error);
-                alert('Error: ' + error.message);
-            }
-            document.getElementById('transferLoading').style.display = 'none';
-        }
-
-        function handleAccountsChanged(accounts) {
-            if (accounts.length === 0) {
-                document.getElementById('walletInterface').style.display = 'none';
             } else {
-                userAddress = accounts[0];
-                document.getElementById('userAddress').textContent = `${userAddress.substr(0,6)}...${userAddress.substr(-4)}`;
-                updateBalance();
+                alert('Please install MetaMask!');
             }
-        }
-
-        // Event Listeners
-        document.getElementById('connectWallet').addEventListener('click', connectWallet);
-        document.getElementById('buyButton').addEventListener('click', buyTokens);
-        document.getElementById('transferButton').addEventListener('click', transferTokens);
+        });
     </script>
 </body>
 </html>
