@@ -40,13 +40,18 @@
         }
 
         .hero::after {
-            content: "dog.png";
-            font-size: 80px;
+            content: "";
+            width: 120px;  /* Adjust based on your image size */
+            height: 120px; /* Adjust based on your image size */
             position: absolute;
             bottom: -40px;
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            background-image: url('dog.png');  /* Update this path to match your image location */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
 
         @keyframes bounce {
